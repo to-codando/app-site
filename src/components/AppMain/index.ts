@@ -17,10 +17,10 @@ const styles = () => css`
   app-main,
   .wrap-ctx {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-wrap:wrap;
-    width:100vw;
-    height: 100vh
+    min-width:100vw;
+    min-height: 100vh
   }
 `;

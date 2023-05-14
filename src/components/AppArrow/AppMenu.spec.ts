@@ -2,9 +2,9 @@
 // import * as sinon from "sinon";
 import { expect } from "@esm-bundle/chai";
 
-import { AppHello } from "@/components/AppHello";
+import { AppMenu } from "@/components/AppMenu";
 
-describe("AppHello component", () => {
+describe("AppMenu component", () => {
   // let cleanup: { (): void };
 
   // before(() => {
@@ -20,6 +20,6 @@ describe("AppHello component", () => {
   // afterEach(async () => {});
 
   it("First helloApp tste test", () => {
-    expect(AppHello()).to.have.all.keys(["template", "styles"]);
+    expect(AppMenu()).to.have.all.keys(["template", "styles"]);
   });
 });

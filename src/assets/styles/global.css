@@ -1,33 +1,32 @@
 *,
-*::before,
-*::after,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 body {
   display: flex;
   width: 100%;
   height: auto;
-  min-height:100vh;
-  background: var(--light-grey)
+  min-height: 100vh;
+  background: var(--light-grey);
+  font-size: 120%;
 }
 
 router-view {
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
-  width:100%; */
+  width: 100%;
 }
 
 @media (max-width: 1080px) {
   html {
-    font-size: 93.75%;
+    font-size: 110%;
   }
 }
 
 @media (max-width: 720px) {
   html {
-    font-size: 87.5%;
+    font-size: 120%;
   }
 }
 
