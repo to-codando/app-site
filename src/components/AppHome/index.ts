@@ -1,3 +1,4 @@
+import { breakpoints } from '@/utils/mediaQuery';
 import { html, css } from "iares";
 
 import { AppHeader } from "@/components/AppHeader";
@@ -113,10 +114,15 @@ const styles = () => css`
   .content-ctx {
     background: var(--light-amber);
     border-bottom: 5px #fff solid;
-    box-shadow: 3px 3px 3px #503c150d
+    box-shadow: 3px 3px 3px #503c150d;
+    padding: 0 1em
   }
 
   .banner-ctx {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'message image';
     align-items: center;
     position: relative;
     height: calc(100vh - 5em)
@@ -173,6 +179,11 @@ const styles = () => css`
     justify-content: space-between;
     width: 100%;
     max-width: 450px;
+    grid-area: image
+  }
+
+  .message-ctx {
+    grid-area: message
   }
 
   .button-ctx + .button-ctx {
@@ -185,4 +196,118 @@ const styles = () => css`
     left:50%;
     transform: translate3d(-50%)
   }
+
+  @media all and (max-width: ${breakpoints.xl}) {
+
+    .banner-ctx  {
+      max-width: 75em;
+      grid-template-columns: 1fr 420px;
+      grid-template-areas: 'message image';
+      margin:0 auto
+    }
+
+    .banner-ctx::before {
+      top: 3em
+    }
+
+    .banner-ctx .message-ctx{
+      font-size: .875em
+    }
+
+  }
+
+  @media all and (max-width: ${breakpoints.lg}) {
+
+    .banner-ctx  {
+      max-width: 62em;
+      grid-template-columns: 1fr 380px;
+      grid-template-areas: 'message image';
+      margin:0 auto;
+    }
+
+    .banner-ctx::before {
+      top: 4em
+    }
+
+    .banner-ctx .message-ctx{
+      font-size: .75em
+    }
+
+  }
+
+  @media all and (max-width: ${breakpoints.md}) {
+
+    .banner-ctx  {
+      max-width: 24em;
+      height: 100vh;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      'image'
+      'message';
+      margin:0 auto;
+
+    }
+
+    .banner-ctx::before {
+      top: 10em;
+      left:-2em;
+      transform: rotate(-60deg)
+    }
+
+    .banner-ctx .message-ctx{
+      font-size: 0.875em;
+      top: -2em;
+      position:relative
+    }
+
+    .banner-ctx .title-ctx {
+      text-align:center;
+      font-size: 3em;
+    }
+
+    .banner-ctx .image-ctx{
+      max-width:280px;
+      margin:0 auto;
+    }
+
+    .banner-ctx .tagline-ctx {
+      font-size: 1em;
+      max-width: 26em;
+      text-align:center;
+      margin:0 auto
+    }
+
+    .wrap-button-ctx {
+      max-width: 24em;
+      margin:1em auto 0 auto;
+      font-size: .875em;
+    }
+
+    .arrow-ctx {
+      display:none
+    }
+
+  }
+
+  @media all and (max-width: ${breakpoints.sm}) {
+
+    .banner-ctx .title-ctx {
+      font-size: 2.5em;
+    }    
+
+    .banner-ctx::before {
+      font-size: 2em;
+      top: 6em;
+      left: -2em;
+      transform: rotate(-76deg);
+    }   
+    
+    .banner-ctx .message-ctx {
+      font-size: .75em;
+      top: -3em;
+    }
+
+  }  
+
+  
 `;

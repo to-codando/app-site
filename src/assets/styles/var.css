@@ -207,4 +207,10 @@
   --fam-list-border-width: none;
   --fam-list-border-style: none;
   --fam-list-border-color: transparent;
+
+  --breakpoint-sm: 36em;
+  --breakpoint-md: 48em;
+  --breakpoint-lg: 62em;
+  --breakpoint-xl: 75em;
+  --breakpoint-xxl: 87.5em;
 }

@@ -2,6 +2,7 @@ import { html, css } from "iares";
 
 import { FamContainer } from "fam-code-ui";
 import { AppMenu } from "@/components/AppMenu";
+import { breakpoints } from "@/utils/mediaQuery";
 
 const template = () => html`
   <header class="wrap-ctx">
@@ -45,5 +46,9 @@ const styles = () => css`
   .menu-ctx {
     justify-content: center
   }
+
+   @media all and (max-width: ${breakpoints.md}) {
+     .wrap-ctx { min-height: 0}
+   }
 
 `;
