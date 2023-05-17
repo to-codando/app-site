@@ -5,16 +5,17 @@ import { FamIcon } from "fam-code-ui";
 import { breakpoints } from "@/utils/mediaQuery";
 
 const showMenu = () => {
-  const menu = document.querySelector('#navMenu')
-  menu?.classList.toggle('show-nav')
-}
+  const menu = document.querySelector("#navMenu");
+  menu?.classList.toggle("show-nav");
+};
 
 const template = () => html`
   <nav class="wrap-ctx" id="navMenu">
+    <span class="before-ctx" onClick=${showMenu}></span>
     <div class="button-ctx" onClick=${showMenu}>
       <${FamIcon} name="menu" size="1" />
     </div>
-    <ul>
+    <ul onClick=${showMenu}>
       <li><a href="#/">Início</a></li>
       <li><a href="#/">Portifólio</a></li>
       <li><a href="#/">Sobre</a></li>
@@ -25,7 +26,6 @@ const template = () => html`
 `;
 
 export const AppMenu = () => {
-
   return {
     template,
     styles,
@@ -39,11 +39,11 @@ const styles = () => css`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%
+    width: 100%;
   }
 
-  .wrap-ctx li + li {
-    margin-left: 1em
+  .wrap-ctx {
+    font-size: 1.2em
   }
 
   .button-ctx {
@@ -54,22 +54,37 @@ const styles = () => css`
     cursor: pointer;
   }
 
-  @media all and (min-width: ${breakpoints.md}) {
-    .wrap-ctx .highlight {
-      border-radius: 8px;
-      background: var(--amber);
-      color: var(--black);
-      padding: 1em
-    }    
+  .wrap-ctx li a{
+    transition: ease-in 0.2s;
+    width: 100%;
   }
 
+  .wrap-ctx li a:hover {
+    color: var(--black)
+  }
+
+  .wrap-ctx li + li {
+    margin-left: 1em
+  }  
+
+  .wrap-ctx .highlight {
+    border-radius: 8px;
+    background: var(--amber);
+  }   
+
+
+  @media all and (min-width: ${breakpoints.md}) {
+     .wrap-ctx .highlight {
+      padding: 1em
+     }
+  }
 
   @media all and (max-width: ${breakpoints.md}) {
     .wrap-ctx {
       position: relative
     }    
 
-    .wrap-ctx::before {
+    .wrap-ctx .before-ctx {
       content: '';
 
       width: 100%;
@@ -85,6 +100,24 @@ const styles = () => css`
 
       transition: all 0.5s;
     }
+
+    .wrap-ctx .highlight {
+      border-radius: 0;
+      background: none;
+      width: calc(100% - 2em);
+      height: 3em;
+      margin: 0 1em;
+      position: absolute;
+      border-radius: 8px;
+      bottom: 1em;
+      background: var(--amber);
+      z-index: 1003
+    }      
+
+    .wrap-ctx .highlight a {
+      padding: 1em 0;
+      width: 100%
+    }      
 
     .button-ctx {
       display:flex;
@@ -116,7 +149,9 @@ const styles = () => css`
       justify-content: flex-start;
       flex-direction: column;
 
+      height: 100%;
       max-width: 320px;
+      padding-top: 3em;
 
       position: fixed;
       top: 0;
@@ -131,22 +166,27 @@ const styles = () => css`
     }
 
     .wrap-ctx li {
+      display:flex;
+      align-items: center;
       width: 100%;
-      padding: 1em
+      padding: 1em;
+      max-height: 3em;
+      font-size: 0.875em;
     }
+
     .wrap-ctx li + li {
       margin-left: 0
     }
 
     .wrap-ctx li:first-of-type {
-      margin-top: 3.7em;
+      padding-top: 2em;
       border-top: 1px #ebebeb solid
     }
 
     .wrap-ctx.show-nav ul {
       right:0;
     }
-    .wrap-ctx.show-nav::before  {
+    .wrap-ctx.show-nav .before-ctx  {
       right:0;
     }
   }

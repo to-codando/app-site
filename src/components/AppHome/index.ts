@@ -1,4 +1,4 @@
-import { breakpoints } from '@/utils/mediaQuery';
+import { breakpoints } from "@/utils/mediaQuery";
 import { html, css } from "iares";
 
 import { AppHeader } from "@/components/AppHeader";
@@ -15,6 +15,9 @@ const template = () => html`
       <${FamContainer}>
         <slot target="content" ctx="app-home">
           <div class="banner-ctx">
+            <div class="wrap-arrow-ctx">
+              <${FamImage} src="/assets/images/seta-banner.png" fallbackSrc="/assets/images/fallback-white.png" />
+            </div>
             <div class="message-ctx">
               <${FamTitle}>
                 <slot target="content" ctx="app-home">
@@ -27,8 +30,8 @@ const template = () => html`
               <${FamTagline}>
                 <slot target="content" ctx="app-home">
                   <p class="tagline-ctx">
-                    <span>Nos últimos dez anos, estive lado a lado com profissionais de excelência, juntos construímos aplicativos, produtos e serviços de muito sucesso.</span>
-                    <span>Entre em contato, para juntos fazermos história mais uma vez.</span>
+                    <span>Nos últimos dez anos construí sites, aplicativos e e-commerces que superaram as expectativas dos meus clientes.</span>
+                    <span>Veja por sim mesmo acessando o portfólio abaixo.</span>
                   </p>
                 </slot>
               </>
@@ -125,17 +128,16 @@ const styles = () => css`
     grid-template-areas: 'message image';
     align-items: center;
     position: relative;
-    height: calc(100vh - 5em)
+    padding: 1em;
   }
 
-  .banner-ctx::before {
-    content: url('/assets/images/seta-banner.png');
-    width: 220px;
+  .banner-ctx .wrap-arrow-ctx {
+    width: 180px;
     height: 60px;
     position: absolute; 
-    top:8em;
+    top:4em;
     left:calc(50% + 3em);
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
 
   .title-ctx,
@@ -179,7 +181,8 @@ const styles = () => css`
     justify-content: space-between;
     width: 100%;
     max-width: 450px;
-    grid-area: image
+    grid-area: image;
+    margin-top: 2em
   }
 
   .message-ctx {
@@ -190,11 +193,23 @@ const styles = () => css`
     margin-left: 1em
   }
 
-  .arrow-ctx {
-    position:absolute;
-    bottom: 2em;
-    left:50%;
-    transform: translate3d(-50%)
+    .arrow-ctx {
+      align-items: center;
+      justify-content:center;
+      width: 3em;
+      height:3em;
+      bottom: 2em;
+      transform: translateX(-50%);
+      position:absolute;
+      left:50%;
+      bottom:-1em;
+    }
+
+  @media all and (min-width: ${breakpoints.xl}) {
+    .content-ctx {
+      min-height: calc(100vh - 5em);
+      align-items: center
+    }
   }
 
   @media all and (max-width: ${breakpoints.xl}) {
@@ -203,20 +218,26 @@ const styles = () => css`
       max-width: 75em;
       grid-template-columns: 1fr 420px;
       grid-template-areas: 'message image';
-      margin:0 auto
+      margin:0 auto;
+      font-size: .875em;
     }
 
-    .banner-ctx::before {
-      top: 3em
+    .banner-ctx .wrap-arrow-ctx {
+      top: 4em
+    }  
+    
+    .image-ctx {
+      margin-top: 2em
     }
 
-    .banner-ctx .message-ctx{
-      font-size: .875em
-    }
-
+    .arrow-ctx {display: none}
   }
 
   @media all and (max-width: ${breakpoints.lg}) {
+
+    .banner-ctx  {
+      font-size: .875em;
+    }    
 
     .banner-ctx  {
       max-width: 62em;
@@ -225,12 +246,14 @@ const styles = () => css`
       margin:0 auto;
     }
 
-    .banner-ctx::before {
-      top: 4em
+    .banner-ctx .wrap-arrow-ctx {
+      width: 140px;
+      top: 2em;
+      left: 50%;
     }
-
-    .banner-ctx .message-ctx{
-      font-size: .75em
+    
+    .banner-ctx .title-ctx {
+      font-size: 3em
     }
 
   }
@@ -239,39 +262,40 @@ const styles = () => css`
 
     .banner-ctx  {
       max-width: 24em;
-      height: 100vh;
+      height: calc(100vh + 5em);
       grid-template-columns: 1fr;
       grid-template-areas: 
       'image'
       'message';
       margin:0 auto;
-
+      font-size: 0.9em;
     }
 
-    .banner-ctx::before {
-      top: 10em;
-      left:-2em;
-      transform: rotate(-60deg)
+    .banner-ctx .wrap-arrow-ctx {
+      top: 24em;
+      left:-6em;
+      transform: rotate(-76deg);
+      width: 180px;
     }
 
     .banner-ctx .message-ctx{
-      font-size: 0.875em;
       top: -2em;
-      position:relative
+      position:relative;
+      font-size: .875em;
     }
 
     .banner-ctx .title-ctx {
       text-align:center;
-      font-size: 3em;
+      font-size: 3.8em
     }
 
     .banner-ctx .image-ctx{
-      max-width:280px;
-      margin:0 auto;
+      max-width:380px;
+      margin:1em auto 1em auto;
     }
 
     .banner-ctx .tagline-ctx {
-      font-size: 1em;
+      font-size: 1.4em;
       max-width: 26em;
       text-align:center;
       margin:0 auto
@@ -280,7 +304,7 @@ const styles = () => css`
     .wrap-button-ctx {
       max-width: 24em;
       margin:1em auto 0 auto;
-      font-size: .875em;
+      font-size: 1.3em;
     }
 
     .arrow-ctx {
@@ -291,20 +315,36 @@ const styles = () => css`
 
   @media all and (max-width: ${breakpoints.sm}) {
 
-    .banner-ctx .title-ctx {
-      font-size: 2.5em;
-    }    
 
-    .banner-ctx::before {
+
+    .banner-ctx .wrap-arrow-ctx {
       font-size: 2em;
-      top: 6em;
-      left: -2em;
-      transform: rotate(-76deg);
+      top: 11em;
+      left: -1em;
+      transform: rotate(-68deg);
+      width: 140px
     }   
     
     .banner-ctx .message-ctx {
-      font-size: .75em;
+      font-size: .875em;
       top: -3em;
+    }
+
+    .banner-ctx .image-ctx{
+      max-width:280px;
+      margin:1em auto 2em auto;
+    }    
+
+    .banner-ctx .tagline-ctx {
+      max-width: 18em
+    }  
+    
+    .banner-ctx .wrap-button-ctx {
+      flex-wrap: wrap
+    }
+
+    .wrap-button-ctx .button-ctx + .button-ctx {
+      margin: 1em 0 0 0
     }
 
   }  

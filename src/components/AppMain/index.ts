@@ -20,7 +20,6 @@ const styles = () => css`
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap:wrap;
-    min-width:100vw;
-    min-height: 100vh
+    width:100vw;
   }
 `;

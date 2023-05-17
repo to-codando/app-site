@@ -32,8 +32,6 @@ const styles = () => css`
       animation-duration: 3s;
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
-      margin-left: 30px;
-      margin-top: 5px;
       border-radius: 20px;
       border: 2px var(--gray) solid;
       width: 32px;
