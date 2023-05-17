@@ -3,6 +3,7 @@ import { TRoute } from "iares";
 
 import { AppDefault } from "@/components/AppDefault";
 import { AppHome } from "@/components/AppHome";
+import { AppAbout } from "@/components/AppAbout";
 
 export const routes: TRoute[] = [
   {
@@ -17,6 +18,13 @@ export const routes: TRoute[] = [
     start: "#/",
     mount: ({ context }) => {
       render(html`<${AppHome} />`, context);
+    },
+  },
+  {
+    regex: /^#\/$|^#\/sobre$/,
+    start: "#/",
+    mount: ({ context }) => {
+      render(html`<${AppAbout} />`, context);
     },
   },
 ];

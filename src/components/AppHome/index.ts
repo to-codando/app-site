@@ -1,16 +1,14 @@
 import { breakpoints } from "@/utils/mediaQuery";
 import { html, css } from "iares";
 
-import { AppHeader } from "@/components/AppHeader";
+
 import { AppArrow } from "@/components/AppArrow";
 
 import { FamTitle, FamTagline, FamImage, FamContainer, FamButton } from "fam-code-ui";
 
 const template = () => html`
   <div class="wrap-ctx">
-    <div class="header-ctx">
-      <${AppHeader}  />    
-    </div>
+
     <div class="content-ctx">
       <${FamContainer}>
         <slot target="content" ctx="app-home">
@@ -18,20 +16,20 @@ const template = () => html`
             <div class="wrap-arrow-ctx">
               <${FamImage} src="/assets/images/seta-banner.png" fallbackSrc="/assets/images/fallback-white.png" />
             </div>
+            
             <div class="message-ctx">
               <${FamTitle}>
                 <slot target="content" ctx="app-home">
                   <h1 class="title-ctx">
-                    <span>Precisando de um </span>
-                    <span>desenvolvedor experiente?</span>
+                    <span>Precisa de um site</span>
+                    <span>aplicativo ou e-commerce?</span>
                   </h1>
                 </slot>
               </>
               <${FamTagline}>
                 <slot target="content" ctx="app-home">
                   <p class="tagline-ctx">
-                    <span>Nos últimos dez anos construí sites, aplicativos e e-commerces que superaram as expectativas dos meus clientes.</span>
-                    <span>Veja por sim mesmo acessando o portfólio abaixo.</span>
+                  <span>Minha especialidade é construir ferramentas inteligentes que reduzem o custo, aumentam o faturamento e atraem novos clientes para o teu negócio todos os dias.</span>
                   </p>
                 </slot>
               </>
@@ -41,7 +39,7 @@ const template = () => html`
                   <${FamButton}>
                     <slot target="content">
                       <span type="primary">
-                        <i>Entre em contato</i>
+                        <i>Bora conversar</i>
                       </span>
                     </slot>
                   </>
@@ -51,7 +49,7 @@ const template = () => html`
                   <${FamButton}>
                     <slot target="content">
                       <span type="primary-hole">
-                        <i>Veja meus projetos</i>
+                        <i>Projetos realizados</i>
                       </span>
                     </slot>
                   </>
@@ -71,6 +69,7 @@ const template = () => html`
         </slot>
       </>
     </div>
+    
   </div>
 `;
 
@@ -97,7 +96,7 @@ const styles = () => css`
     flex-wrap: wrap
   }
 
-  .header-ctx,
+
   .content-ctx,
   .banner-ctx,
   .message-ctx,
@@ -142,7 +141,7 @@ const styles = () => css`
 
   .title-ctx,
   .tagline-ctx {
-    flex-wrap: wrap
+    flex-wrap: wrap;
   }
 
   .title-ctx {
@@ -156,6 +155,7 @@ const styles = () => css`
   .title-ctx span:first-of-type {
     font-size: 0.7em;
   }
+
   .title-ctx span:last-of-type {
     margin-bottom: 0.5em
   }
@@ -193,17 +193,17 @@ const styles = () => css`
     margin-left: 1em
   }
 
-    .arrow-ctx {
-      align-items: center;
-      justify-content:center;
-      width: 3em;
-      height:3em;
-      bottom: 2em;
-      transform: translateX(-50%);
-      position:absolute;
-      left:50%;
-      bottom:-1em;
-    }
+  .arrow-ctx {
+    align-items: center;
+    justify-content:center;
+    width: 3em;
+    height:3em;
+    bottom: 2em;
+    transform: translateX(-50%);
+    position:absolute;
+    left:50%;
+    bottom:-1em;
+  }
 
   @media all and (min-width: ${breakpoints.xl}) {
     .content-ctx {
@@ -314,8 +314,6 @@ const styles = () => css`
   }
 
   @media all and (max-width: ${breakpoints.sm}) {
-
-
 
     .banner-ctx .wrap-arrow-ctx {
       font-size: 2em;

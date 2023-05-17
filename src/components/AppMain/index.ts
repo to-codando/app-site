@@ -1,7 +1,12 @@
 import { html, css } from "iares";
 
+import { AppHeader } from "@/components/AppHeader";
+
 const template = () => html`
   <div class="wrap-ctx">
+  <div class="header-ctx">
+    <${AppHeader}  />    
+  </div>  
     <router-view></router-view>
   </div>
 `;
@@ -22,4 +27,8 @@ const styles = () => css`
     flex-wrap:wrap;
     width:100vw;
   }
+
+    .header-ctx {
+      width: 100%
+    }
 `;

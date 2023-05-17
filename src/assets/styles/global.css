@@ -8,7 +8,7 @@ body {
   width: 100%;
   height: auto;
   min-height: 100vh;
-  background: var(--light-grey);
+  background: var(--white);
   font-size: 120%;
 }
 

@@ -3,9 +3,9 @@ import { FamIcon } from "fam-code-ui";
 
 const template = () => html`
   <div class="wrap-ctx">
-    <div class="floating-ctx">
+    <a href="#/" class="floating-ctx">
       <${FamIcon}  name="keyboard_double_arrow_down" size="2" />
-    </div>
+    </a>
   </div>
 `;
 
@@ -24,8 +24,6 @@ const styles = () => css`
     align-items: center;
     width: 100%
   }
-
-
 
   .floating-ctx { 
       animation-name: floating-ctx ;

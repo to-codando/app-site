@@ -17,10 +17,10 @@ const template = () => html`
     </div>
     <ul onClick=${showMenu}>
       <li><a href="#/">Início</a></li>
-      <li><a href="#/">Portifólio</a></li>
-      <li><a href="#/">Sobre</a></li>
-      <li><a href="#/">Currículo</a></li>
-      <li class="highlight"><a href="#/">Contato</a></li>
+      <li><a href="#/portfolio">Portifólio</a></li>
+      <li><a href="#/sobre">Sobre</a></li>
+      <li><a href="#/experiencias">Experiências</a></li>
+      <li class="highlight"><a href="#/contato">Contato</a></li>
     </ul>
   </nav>
 `;
@@ -43,7 +43,7 @@ const styles = () => css`
   }
 
   .wrap-ctx {
-    font-size: 1.2em
+    font-size: 1em
   }
 
   .button-ctx {
@@ -57,6 +57,7 @@ const styles = () => css`
   .wrap-ctx li a{
     transition: ease-in 0.2s;
     width: 100%;
+    color: var(--gray);
   }
 
   .wrap-ctx li a:hover {
@@ -71,6 +72,10 @@ const styles = () => css`
     border-radius: 8px;
     background: var(--amber);
   }   
+
+  .wrap-ctx .highlight > a {
+    color: var(--fam-button-primary-color);    
+  }
 
 
   @media all and (min-width: ${breakpoints.md}) {
@@ -114,7 +119,7 @@ const styles = () => css`
       z-index: 1003
     }      
 
-    .wrap-ctx .highlight a {
+    .wrap-ctx .highlight a  {
       padding: 1em 0;
       width: 100%
     }      

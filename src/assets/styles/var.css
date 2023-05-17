@@ -1,5 +1,5 @@
 :root {
-  --gray: #646464;
+  --gray: #70768b;
   --black: #000;
   --amber: #fcb900;
   --light-amber: #fffcf5;
@@ -85,11 +85,11 @@
   --title-align-items: center;
   --title-text-align: left;
 
-  --title-color: var(--black);
+  --title-color: #1d3387;
   --title-padding: 0;
 
   /*TAGLINE */
-  --fam-tagline-color: var(--gray);
+  --fam-tagline-color: #70768b;
   --fam-tagline-font-size: 1em;
   --fam-tagline-font-weight: normal;
   --fam-tagline-line-height: 1.4em;
@@ -186,13 +186,13 @@
   --fam-button-primary-hole-background: none;
   --fam-button-primary-hole-border-color: var(--amber);
 
-  --fam-button-primary-color: #764c0a;
+  --fam-button-primary-color:rgb(115, 94, 44);
   --fam-button-primary-background: var(--amber);
   --fam-button-primary-border-color: #d5b14e;
 
-  --fam-button-primary-hole-color: var(--gray);
+  --fam-button-primary-hole-color: #70768b;
   --fam-button-primary-hole-background: var(--white);
-  --fam-button-primary-hole-border-color: var(--gray);
+  --fam-button-primary-hole-border-color: #70768b;
 
   /* List */
 
